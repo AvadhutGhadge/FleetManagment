@@ -1,0 +1,29 @@
+package services;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import entities.Customer;
+import repositories.CustomerRepository;
+
+@Service
+public class CustomerManagerImpl implements CustomerManager{
+	@Autowired
+	private CustomerRepository c_repository;
+	
+
+	@Override
+	public void addCourse(Customer customer) {
+		// TODO Auto-generated method stub
+		c_repository.save(customer);
+	}
+
+	@Override
+	public List<Customer> getAllCustomers() {
+		// TODO Auto-generated method stub
+		return c_repository.findAll();
+	}
+
+}
