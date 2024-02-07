@@ -1,0 +1,96 @@
+package com.example.demo.entity;
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+
+@Entity
+public class Airport 
+{
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int airportId;
+	@Column(unique = true)
+	private String airportCode;
+    private String airportName;
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "cityId")
+    private int cityId;
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "stateId")
+    private int stateId;
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "hubId")
+    private int hubId;
+    
+    public Airport(int airportId, String airportCode, String airportName, int cityId, int stateId, int hubId) 
+    {
+        this.airportId = airportId;
+        this.airportCode = airportCode;
+        this.airportName = airportName;
+        this.cityId = cityId;
+        this.stateId = stateId;
+        this.hubId = hubId;
+    }
+    
+	public int getAirportId()
+	{
+		return airportId;
+	}
+
+	public String getAirportCode() 
+	{
+		return airportCode;
+	}
+
+	public void setAirportCode(String airportCode)
+	{
+		this.airportCode = airportCode;
+	}
+
+	public String getAirportName()
+	{
+		return airportName;
+	}
+
+	public void setAirportName(String airportName) 
+	{
+		this.airportName = airportName;
+	}
+
+	public int getCityId()
+	{
+		return cityId;
+	}
+
+	public void setCityId(int cityId) 
+	{
+		this.cityId = cityId;
+	}
+
+	public int getStateId()
+	{
+		return stateId;
+	}
+
+	public void setStateId(int stateId) 
+	{
+		this.stateId = stateId;
+	}
+
+	public int getHubId()
+	{
+		return hubId;
+	}
+
+	public void setHubId(int hubId)
+	{
+		this.hubId = hubId;
+	}
+}
