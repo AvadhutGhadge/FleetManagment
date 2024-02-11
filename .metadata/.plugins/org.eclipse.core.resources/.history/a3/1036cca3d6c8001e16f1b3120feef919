@@ -1,0 +1,36 @@
+package com.example.demo.controllers;
+
+import org.springframework.web.bind.annotation.RestController;
+
+
+import com.example.demo.entities.Hub;
+import com.example.demo.services.HubManager;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+
+
+@RestController
+public class HubController {
+	
+	@Autowired
+	private HubManager h_manager;
+	
+	@GetMapping("/hub")
+	public List<Hub> getAllHubs(){
+	
+	 return h_manager.getAllHubs();	}
+	
+	
+	
+	@GetMapping("/")
+	public List<Hub> gethubbycityId(){
+		
+		return h_manager.gethubbycityId();
+		
+	}
+	
+
+}

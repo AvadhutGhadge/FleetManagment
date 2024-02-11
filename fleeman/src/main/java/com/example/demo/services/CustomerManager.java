@@ -8,7 +8,8 @@ import com.example.demo.entities.Customer;
 
 
 public interface CustomerManager {
-	void addCourse(Customer customer);
+	 void addCustomer(Customer customer);
 	 List<Customer> getAllCustomers();
 	 boolean login(String email,String password);
+	 Customer getCustomerByEmialId(String email);
 }

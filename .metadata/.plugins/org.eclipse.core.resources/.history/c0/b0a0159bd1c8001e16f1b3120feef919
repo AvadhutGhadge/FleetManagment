@@ -1,0 +1,16 @@
+package com.fleeman.fleeman.services;
+
+import com.fleeman.fleeman.entities.Booking;
+
+public interface BookingService {
+
+
+
+
+
+    void save(Booking booking);
+
+    public Booking getBookingByEmailId(String emailId);
+
+}
+

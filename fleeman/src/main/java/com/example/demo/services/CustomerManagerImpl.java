@@ -3,14 +3,13 @@ package com.example.demo.services;
 import java.util.List;
 
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.entities.Customer;
 import com.example.demo.repositories.CustomerRepository;
 
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.Query;
 
 
 
@@ -21,7 +20,7 @@ public class CustomerManagerImpl implements CustomerManager{
 	
 
 	@Override
-	public void addCourse(Customer customer) {
+	public void addCustomer(Customer customer) {
 		// TODO Auto-generated method stub
 		c_repository.save(customer);
 	}
@@ -37,6 +36,14 @@ public class CustomerManagerImpl implements CustomerManager{
 		 int count = c_repository.login(email, password);
 	        return count > 0;
 	}
+
+	
+	public Customer getCustomerByEmialId(String email) {
+		// TODO Auto-generated method stub
+		return c_repository.getCustomerByEmialId(email);
+	}
+
+	
 
 	
 	

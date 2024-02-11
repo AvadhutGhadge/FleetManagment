@@ -1,5 +1,4 @@
 package com.example.demo.entities;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -61,6 +60,12 @@ public class Booking {
 
     @Column(name = "monthly_rate")
     private BigDecimal monthlyRate;
+
+    @Column(name = "Email_ID")
+    private String emailId;
+
+
+
 
     // Constructors, getters, and setters
     public Booking() {
@@ -176,5 +181,14 @@ public class Booking {
 
     public void setMonthlyRate(BigDecimal monthlyRate) {
         this.monthlyRate = monthlyRate;
+    }
+
+
+    public String getEmailId() {
+        return emailId;
+    }
+
+    public void setEmailId(String emailId) {
+        this.emailId = emailId;
     }
 }

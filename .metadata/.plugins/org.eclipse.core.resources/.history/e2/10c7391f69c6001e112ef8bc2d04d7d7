@@ -1,0 +1,25 @@
+package com.example.demo.services;
+
+import com.example.demo.entities.Invoice;
+
+public class InvoiceManagerImpl implements InvoiceManager{
+
+	@Override
+	public void addInvoice(Invoice invoice) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Invoice getbillingbybookid(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String updatebillbyuseremialid(Invoice invoice, String email) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

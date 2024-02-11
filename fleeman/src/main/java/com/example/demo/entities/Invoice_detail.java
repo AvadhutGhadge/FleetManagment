@@ -21,5 +21,29 @@ public class Invoice_detail {
 	@JoinColumn(name = "AddonId") 
 	private AddOn addon;
 	private int amt;
+	public int getIdetailId() {
+		return IdetailId;
+	}
+	public void setIdetailId(int idetailId) {
+		IdetailId = idetailId;
+	}
+	public Invoice getInvoice() {
+		return invoice;
+	}
+	public void setInvoice(Invoice invoice) {
+		this.invoice = invoice;
+	}
+	public AddOn getAddon() {
+		return addon;
+	}
+	public void setAddon(AddOn addon) {
+		this.addon = addon;
+	}
+	public int getAmt() {
+		return amt;
+	}
+	public void setAmt(int amt) {
+		this.amt = amt;
+	}
 	
 }
