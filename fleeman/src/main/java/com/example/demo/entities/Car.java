@@ -1,5 +1,6 @@
 package com.example.demo.entities;
 
+
 import java.util.Date;
 
 import jakarta.persistence.Column;
@@ -9,6 +10,8 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
 
@@ -22,8 +25,9 @@ public class Car {
     @Column(name = "Car_ID")
     private Long carId;
 
-    @Column(name = "CarType_ID")
-    private Long carTypeId;
+    @ManyToOne
+    @JoinColumn(name = "CarType_ID")
+    private CarType carType;
 
     @Column(name = "Car_Name")
     private String carName;
@@ -40,8 +44,9 @@ public class Car {
     @Column(name = "Mileage")
     private double mileage;
 
-    @Column(name = "Hub_ID")
-    private Long hubId;
+    @ManyToOne
+    @JoinColumn(name = "Hub_ID")
+    private Hub hub;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "Is_Available", length = 1)
@@ -56,23 +61,6 @@ public class Car {
 
     // Constructors
 
-    public Car() {
-    }
-
-    public Car(Long carTypeId, String carName, String numberPlate, String fuelType,
-                     int capacity, double mileage, Long hubId, AvailabilityStatus isAvailable,
-                     Date maintenanceDueDate) {
-        this.carTypeId = carTypeId;
-        this.carName = carName;
-        this.numberPlate = numberPlate;
-        this.fuelType = fuelType;
-        this.capacity = capacity;
-        this.mileage = mileage;
-        this.hubId = hubId;
-        this.isAvailable = isAvailable;
-        this.maintenanceDueDate = maintenanceDueDate;
-    }
-
     // Getters and setters
 
     public Long getCarId() {
@@ -83,12 +71,12 @@ public class Car {
         this.carId = carId;
     }
 
-    public Long getCarTypeId() {
-        return carTypeId;
+    public CarType getCarType() {
+        return carType;
     }
 
-    public void setCarTypeId(Long carTypeId) {
-        this.carTypeId = carTypeId;
+    public void setCarType(CarType carType) {
+        this.carType = carType;
     }
 
     public String getCarName() {
@@ -131,12 +119,12 @@ public class Car {
         this.mileage = mileage;
     }
 
-    public Long getHubId() {
-        return hubId;
+    public Hub getHub() {
+        return hub;
     }
 
-    public void setHubId(Long hubId) {
-        this.hubId = hubId;
+    public void setHub(Hub hub) {
+        this.hub = hub;
     }
 
     public AvailabilityStatus getIsAvailable() {

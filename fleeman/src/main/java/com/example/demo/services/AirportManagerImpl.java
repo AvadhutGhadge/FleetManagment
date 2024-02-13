@@ -28,4 +28,10 @@ public class AirportManagerImpl implements AirportManager
         return airportRepository.findById(id);
     }
 
+	@Override
+	public List<String> getAllAirportCodes() 
+	{
+		return airportRepository.getAllAirportCodes();
+	}
+
 }

@@ -27,4 +27,12 @@ public class CityManagerImpl implements CityManager {
 		return c_repository.findById(id);
 	}
 
+	@Override
+	public List<City> getCityByState(int state_id) {
+		// TODO Auto-generated method stub
+		return c_repository.getCitybyState(state_id);
+	}
+
+	
+
 }

@@ -9,4 +9,6 @@ public interface CityManager {
 
 	List <City> getAllCities();
 	Optional<City> getCityById(int id);
+	List<City> getCityByState(int state_id);
+	
 }

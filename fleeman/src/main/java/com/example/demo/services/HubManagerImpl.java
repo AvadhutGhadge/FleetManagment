@@ -21,8 +21,9 @@ public class HubManagerImpl implements HubManager{
 		return Hb_repository.findAll();
 	}
 	
-	public Optional<Hub> gethubbycityId(int id){
-		return Hb_repository.findById(id);
+	public List<Hub> gethubbycityId(int City_id){
+//		return Hb_repository.findById(id);
+		return (Hb_repository.getHubByCityId(City_id));
 	}
 	
 	

@@ -16,6 +16,7 @@ import com.example.demo.services.CustomerManager;
 
 
 @RestController
+@CrossOrigin
 public class CustomerCotroller {
 	@Autowired
 	private CustomerManager c_manager;

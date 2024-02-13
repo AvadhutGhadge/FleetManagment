@@ -1,11 +1,5 @@
 package com.example.demo.entities;
-
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "Hub")
@@ -21,13 +15,22 @@ public class Hub {
     private String hubAddressAndDetails;
     
     @Column(name = "contactNumber", unique = true) 
-    private int contactNumber;
+    private Long contactNumber;
     
+    @ManyToOne
+    @JoinColumn(name = "city_id")
+    private City city;
+    
+    @ManyToOne
+    @JoinColumn(name = "state_id")
+    private State state;
 
-    private int cityId;
+    // Constructors
     
-    
-    private int stateId;
+    public Hub() {
+    }
+
+    // Getters and setters
 
     public int getHubId() {
         return hubId;
@@ -53,31 +56,32 @@ public class Hub {
         this.hubAddressAndDetails = hubAddressAndDetails;
     }
 
-    public int getContactNumber() {
+    public Long getContactNumber() {
         return contactNumber;
     }
 
-    public void setContactNumber(int contactNumber) {
+    public void setContactNumber(Long contactNumber) {
         this.contactNumber = contactNumber;
     }
 
-    public int getCityId() {
-        return cityId;
+    public City getCity() {
+        return city;
     }
 
-    public void setCityId(int cityId) {
-        this.cityId = cityId;
+    public void setCity(City city) {
+        this.city = city;
     }
 
-    public int getStateId() {
-        return stateId;
+    public State getState() {
+        return state;
     }
 
-    public void setStateId(int stateId) {
-        this.stateId = stateId;
+    public void setState(State state) {
+        this.state = state;
     }
 
-   
+    // toString method
+
     @Override
     public String toString() {
         return "Hub{" +
@@ -85,8 +89,8 @@ public class Hub {
                 ", hubName='" + hubName + '\'' +
                 ", hubAddressAndDetails='" + hubAddressAndDetails + '\'' +
                 ", contactNumber=" + contactNumber +
-                ", cityId=" + cityId +
-                ", stateId=" + stateId +
+                ", city=" + city +
+                ", state=" + state +
                 '}';
     }
 }

@@ -9,4 +9,5 @@ public interface AirportManager
 {
 	List<Airport> getAllAirport();
 	Optional<Airport> getAirportById(int id);
+	List<String> getAllAirportCodes();
 }

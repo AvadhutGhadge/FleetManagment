@@ -8,7 +8,7 @@ import com.example.demo.entities.Hub;
 public interface HubManager {
 	
 	List<Hub> getAllHubs();
-	Optional<Hub> gethubbycityId(int id);
+	List<Hub> gethubbycityId(int City_id);
 }
 
 
