@@ -21,4 +21,15 @@ public class BookingServiceImpl implements BookingService {
     public Booking getBookingByEmailId(String emailId) {
         return bookingrepository.getBookingByEmailId(emailId);
     }
+    @Override
+	public void deleteBooking(Long bookingId) {
+		bookingrepository.deleteById(bookingId);;
+		System.out.println("deleted_service");
+	}
+	
+//	@Override
+//	public void deleteBooking(Booking booking) {
+//		bookingrepository.delete(booking);;
+//		System.out.println("deleted_service");
+//	}
 }

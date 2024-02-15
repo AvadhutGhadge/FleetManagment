@@ -30,4 +30,17 @@ public class BookingController {
     {
         return bookingService.getBookingByEmailId(emailId);
     }
+    @CrossOrigin
+    @DeleteMapping("/api/deletebooking/{bookingId}")
+    public void deleteBooking(@PathVariable Long bookingId) {
+        bookingService.deleteBooking(bookingId);
+        System.out.println("deleted_controller");
+    }
+    
+//    @CrossOrigin
+//    @DeleteMapping("/api/deletebooking")
+//    public void deleteBooking(@RequestBody Booking booking) {
+//        bookingService.deleteBooking(booking);
+//        System.out.println("deleted_controller");
+//    }
 }

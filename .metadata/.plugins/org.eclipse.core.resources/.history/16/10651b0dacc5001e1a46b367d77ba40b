@@ -1,9 +1,0 @@
-package com.example.demo.entity;
-
-public class Invoice_detail {
-	private int IdetailId;
-	private Invoice invoice;
-	private Addon addon;
-	private int amt;
-	
-}
