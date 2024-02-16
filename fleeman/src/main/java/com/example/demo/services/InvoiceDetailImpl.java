@@ -17,9 +17,9 @@ public class InvoiceDetailImpl implements InvoiceDetailManager{
 	
 
 	@Override
-	public List<Invoice_detail> getInvoice_detail() {
+	public List<Invoice_detail> getInvoice_detail(int id) {
 		// TODO Auto-generated method stub
-		return IDR.findAll();
+		return IDR.getmain(id);
 	}
 
 	@Override
