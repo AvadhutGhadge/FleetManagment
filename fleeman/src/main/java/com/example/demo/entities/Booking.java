@@ -198,4 +198,25 @@ public class Booking {
     public void setEmailId(String emailId) {
         this.emailId = emailId;
     }
+    public int getP_hubId() {
+		return p_hubId;
+	}
+
+	public void setP_hubId(int p_hubId) {
+		this.p_hubId = p_hubId;
+	}
+
+	public int getR_hubId() {
+		return r_hubId;
+	}
+
+	public void setR_hubId(int r_hubId) {
+		this.r_hubId = r_hubId;
+	}
+
+	@Column(name = "p_hubId")
+    private int p_hubId;
+    	
+    @Column(name = "r_hubId")
+    private int r_hubId;
 }

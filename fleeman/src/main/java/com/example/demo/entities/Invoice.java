@@ -3,7 +3,10 @@ package com.example.demo.entities;
 import java.time.LocalDateTime;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -157,4 +160,41 @@ public class Invoice {
 	@JoinColumn(name = "customerId") 
 	private Customer customer;
 	
+	public int getP_hubId() {
+		return p_hubId;
+	}
+
+	public void setP_hubId(int p_hubId) {
+		this.p_hubId = p_hubId;
+	}
+
+	public int getR_hubId() {
+		return r_hubId;
+	}
+
+	public void setR_hubId(int r_hubId) {
+		this.r_hubId = r_hubId;
+	}
+
+	@Column(name = "p_hubId")
+    private int p_hubId;
+    	
+    @Column(name = "r_hubId")
+    private int r_hubId;
+
+@Enumerated(EnumType.STRING)
+	    @Column(name = "isReturned", length = 1)
+	    private Return_Status isReturned;
+	 
+	public Return_Status getIsReturned() {
+		return isReturned;
+	}
+
+	public void setIsReturned(Return_Status isReturned) {
+		this.isReturned = isReturned;
+	}
+
+	public enum Return_Status {
+        Y, N
+    }
 }

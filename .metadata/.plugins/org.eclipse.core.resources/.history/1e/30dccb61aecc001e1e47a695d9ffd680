@@ -1,0 +1,11 @@
+package com.example.demo.services;
+
+import java.util.Optional;
+
+import com.example.demo.entities.Invoice;
+import com.example.demo.entities.Invoice_detail;
+
+public interface InvoiceManager {
+	void addInvoice(Invoice_detail invoice);
+	Optional<Invoice_detail> getbillingbybookid(int id);
+}
