@@ -1,0 +1,11 @@
+package com.example.demo.services;
+
+import org.springframework.stereotype.Service;
+
+import com.example.demo.entities.BookingDetail;
+
+@Service
+public interface BookingDetailManager {
+	BookingDetail getBookingDetail();
+	BookingDetail addBookingDetail(BookingDetail Book);
+}

@@ -4,6 +4,8 @@ package com.example.demo.controllers;
 
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,14 +21,14 @@ public class BookingController {
 
     @CrossOrigin
     @PostMapping("/api/addbooking")
-    public void save(@RequestBody  Booking booking) {
-        bookingService.save(booking);
+    public Booking save(@RequestBody  Booking booking) {
+        return bookingService.save(booking);
     }
 
 
     @CrossOrigin
     @GetMapping("/api/booking/email/{emailId}")
-    public Booking getBookingByEmailId(@PathVariable String emailId)
+    public List<Booking> getBookingByEmailId(@PathVariable String emailId)
     {
         return bookingService.getBookingByEmailId(emailId);
     }

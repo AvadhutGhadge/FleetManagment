@@ -1,0 +1,22 @@
+package com.example.demo.services;
+
+import org.springframework.stereotype.Service;
+
+import com.example.demo.entities.BookingDetail;
+
+@Service
+public class BookingDetailManagerImpl implements BookingDetailManager{
+
+	@Override
+	public BookingDetail getBookingDetail() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public BookingDetail addBookingDetail(BookingDetail Book) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

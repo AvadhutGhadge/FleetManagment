@@ -1,10 +1,12 @@
 package com.example.demo.services;
 
+import java.util.List;
+
 import com.example.demo.entities.Booking;
 
 public interface BookingService {
-    void save(Booking booking);
-    public Booking getBookingByEmailId(String emailId);
+	Booking save(Booking booking);
+    public List<Booking> getBookingByEmailId(String emailId);
 //  void deleteBooking(Booking booking);
   void deleteBooking(Long bookingId);
 }

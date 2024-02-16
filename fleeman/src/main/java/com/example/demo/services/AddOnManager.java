@@ -10,7 +10,6 @@ public interface AddOnManager {
 	
 
 	List<AddOn> getAllAddOns();
-    
 }
 
     
