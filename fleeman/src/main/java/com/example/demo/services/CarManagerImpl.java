@@ -27,7 +27,10 @@ public class CarManagerImpl implements CarManager
 	{
 		return car_repository.findByHubIdAndCategoryId(hub_id, CarType_ID);
 	}
-
+	public void UpdateAvailable(long carId) 
+	{
+		car_repository.updateCarAvailability(carId);
+	}
 
 
 }

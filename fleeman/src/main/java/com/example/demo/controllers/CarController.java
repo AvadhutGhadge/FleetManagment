@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.entities.Car;
@@ -29,6 +30,12 @@ public class CarController
 	public List<Car> getCarByHubAndCategory(@PathVariable long hub_id,@PathVariable long CarType_ID) 
 	{
 		return car_manager.getCarByHubAndCategory(hub_id, CarType_ID);
+	}
+	@CrossOrigin
+	@PutMapping("/car/update/{carId}")
+    public void updateCarAvailability(@PathVariable long carId) 
+	{
+		car_manager.UpdateAvailable(carId);
 	}
 	
 }
