@@ -19,6 +19,16 @@ public interface CarRepository extends JpaRepository<Car,Long>
 	
 	@Modifying
 	@Transactional
-	 @Query("UPDATE Car c SET c.isAvailable = 'N' WHERE c.carId = :carId")
-	    void updateCarAvailability(long carId);
+	 @Query(value = "UPDATE Car SET is_Available = 'N' WHERE car_Id = :carId", nativeQuery = true)
+	    void updateCarAvailability(@Param("carId") long carId);
+	
+//	@Modifying
+//	@Transactional
+//	 @Query(value = "UPDATE Car SET is_Available = 'Y' and Status = :Status WHERE car_Id = :carId", nativeQuery = true)
+//	    void returned(@Param("carId") long carId,@Param("Status") String Status);
+	
+	@Modifying
+	@Transactional
+	@Query(value = "UPDATE Car SET is_Available = 'Y', Status = :Status WHERE car_Id = :carId", nativeQuery = true)
+	void returned(@Param("carId") long carId, @Param("Status") String Status);
 }

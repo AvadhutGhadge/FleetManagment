@@ -32,5 +32,11 @@ public class CarManagerImpl implements CarManager
 		car_repository.updateCarAvailability(carId);
 	}
 
+	@Override
+	public void returnd(int id, String s) {
+		car_repository.returned(id, s);
+		
+	}
+
 
 }

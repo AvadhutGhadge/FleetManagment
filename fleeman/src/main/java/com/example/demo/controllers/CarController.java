@@ -37,5 +37,11 @@ public class CarController
 	{
 		car_manager.UpdateAvailable(carId);
 	}
+	@CrossOrigin
+	@PutMapping("/car/update/{carId}/{status}")
+    public void updateCar(@PathVariable int carId,@PathVariable String status) 
+	{
+		car_manager.returnd(carId, status);
+	}
 	
 }

@@ -35,8 +35,8 @@ public class Car {
     @Column(name = "Number_Plate", unique = true, length = 50)
     private String numberPlate;
 
-    @Column(name = "Fuel_Type", length = 50)
-    private String fuelType;
+    @Column(name = "Status", length = 50)
+    private String Status;
 
     @Column(name = "Capacity")
     private int capacity;
@@ -95,12 +95,12 @@ public class Car {
         this.numberPlate = numberPlate;
     }
 
-    public String getFuelType() {
-        return fuelType;
+    public String getStatus() {
+        return Status;
     }
 
-    public void setFuelType(String fuelType) {
-        this.fuelType = fuelType;
+    public void setStatus(String fuelType) {
+        this.Status = Status;
     }
 
     public int getCapacity() {
