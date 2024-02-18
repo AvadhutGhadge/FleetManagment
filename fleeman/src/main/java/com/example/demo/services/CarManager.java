@@ -11,4 +11,5 @@ public interface CarManager
 	public void UpdateAvailable(long carId);
 	public void returnd(int id,String s);
 	List<Car> getCarByHubAndCategory(long hub_id, long CarType_ID);
+	Optional<Car> getCar(long carid);
 }

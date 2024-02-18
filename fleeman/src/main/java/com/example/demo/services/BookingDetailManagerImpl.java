@@ -31,4 +31,9 @@ public class BookingDetailManagerImpl implements BookingDetailManager{
 		
 	}
 
+	@Override
+	public List<BookingDetail> getBookingDetailByBookingId(int booking_id) {
+		// TODO Auto-generated method stub
+		return bookingdetailrepository.getBookingDetailByBookingId(booking_id);
+	}
 }

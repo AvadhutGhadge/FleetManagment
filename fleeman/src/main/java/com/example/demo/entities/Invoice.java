@@ -12,6 +12,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 
 @Entity
@@ -148,41 +149,69 @@ public class Invoice {
 	public void setEndDate(LocalDateTime endDate) {
 		this.endDate = endDate;
 	} 
-	@OneToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "bookingId") 
-	private Booking booking;
+//	@ManyToOne(fetch = FetchType.EAGER)
+//	@JoinColumn(name = "bookingId") 
+//	private Booking booking;
+//	
+//	public Booking getBooking() {
+//		return booking;
+//	}
+//
+//	public void setBooking(Booking booking) {
+//		this.booking = booking;
+//	}
 	
-	public Booking getBooking() {
-		return booking;
+	private int bookid;
+
+	public int getBookid() {
+		return bookid;
 	}
 
-	public void setBooking(Booking booking) {
-		this.booking = booking;
+	public void setBookid(int bookid) {
+		this.bookid = bookid;
 	}
 
-	public Car getCar() {
-		return car;
-	}
-
-	public void setCar(Car car) {
-		this.car = car;
-	}
-
-	public Customer getCustomer() {
-		return customer;
-	}
-
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
-	}
-	@OneToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "carId")
-	private Car car;
+//	public Car getCar() {
+//		return car;
+//	}
+//
+//	public void setCar(Car car) {
+//		this.car = car;
+//	}
+//
+//	public Customer getCustomer() {
+//		return customer;
+//	}
+//
+//	public void setCustomer(Customer customer) {
+//		this.customer = customer;
+//	}
+//	@ManyToOne(fetch = FetchType.EAGER)
+//	@JoinColumn(name = "carId")
+//	private Car car;
+//	
+	private int carid;
+	private int customerid;
+//	@ManyToOne(fetch = FetchType.EAGER)
+//	@JoinColumn(name = "customerId") 
+//	private Customer customer;
 	
-	@OneToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "customerId") 
-	private Customer customer;
-	
+	public int getCarid() {
+		return carid;
+	}
+
+	public void setCarid(int carid) {
+		this.carid = carid;
+	}
+
+	public int getCustomerid() {
+		return customerid;
+	}
+
+	public void setCustomerid(int customerid) {
+		this.customerid = customerid;
+	}
+
 	public int getP_hubId() {
 		return p_hubId;
 	}

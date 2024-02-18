@@ -38,4 +38,9 @@ public class BookingDetailController {
 		 booking.deletebooking(deletebooking);
 		
 	}
+	
+	@GetMapping("/bookingdetails/booking_id/{booking_id}")
+	public List<BookingDetail> getBookingDetailByBookingId(@PathVariable int booking_id) {
+		return booking.getBookingDetailByBookingId(booking_id);
+	}
 }

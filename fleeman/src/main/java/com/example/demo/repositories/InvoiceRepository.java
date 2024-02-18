@@ -16,7 +16,7 @@ import jakarta.transaction.Transactional;
 
 @Repository
 public interface InvoiceRepository extends JpaRepository<Invoice,Integer>{
-	@Query(value = "select * from Invoice where booking_id = 1", nativeQuery = true)
+	@Query(value = "select * from Invoice where bookid = 1", nativeQuery = true)
 	public List<Invoice> getBillingByBookingId(@Param("bookingId") int bookingId); 
 	
 	@Query(value = "select * from Invoice where c_email_id = :c_email_id and is_returned='N'", nativeQuery = true)

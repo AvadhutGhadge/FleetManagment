@@ -1,8 +1,7 @@
 package com.example.demo.services;
 
 import java.util.List;
-
-
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -41,6 +40,12 @@ public class CustomerManagerImpl implements CustomerManager{
 	public Customer getCustomerByEmialId(String email) {
 		// TODO Auto-generated method stub
 		return c_repository.getCustomerByEmialId(email);
+	}
+
+	@Override
+	public Optional<Customer> getCustomerid(int email) {
+		// TODO Auto-generated method stub
+		return c_repository.findById(email);
 	}
 
 	

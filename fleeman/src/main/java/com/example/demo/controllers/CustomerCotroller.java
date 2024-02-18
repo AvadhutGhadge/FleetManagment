@@ -1,7 +1,7 @@
 package com.example.demo.controllers;
 
 import java.util.List;
-
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -26,6 +26,14 @@ public class CustomerCotroller {
 	{
 		return c_manager.getAllCustomers();
 	}
+	
+	@GetMapping("/getcustomer/id/{id}")
+	public Optional<Customer> getCustomers(@PathVariable int id)
+	{
+		return c_manager.getCustomerid(id);
+	}
+	
+	
 	@CrossOrigin(origins = "http://localhost:3000")
 	@GetMapping("/customer/{email}")
 	public Customer getCustomerByEmialId(@PathVariable String email)

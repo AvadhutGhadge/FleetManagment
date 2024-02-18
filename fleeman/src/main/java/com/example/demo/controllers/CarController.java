@@ -25,6 +25,11 @@ public class CarController
 	{
 		return car_manager.getCarByHub(hub_id);
 	}
+	@GetMapping("/car/id/{hub_id}")
+	public Optional<Car> getCarId(@PathVariable long hub_id) 
+	{
+		return car_manager.getCar(hub_id);
+	}
 
 	@GetMapping("/car/{hub_id}/{CarType_ID}")
 	public List<Car> getCarByHubAndCategory(@PathVariable long hub_id,@PathVariable long CarType_ID) 

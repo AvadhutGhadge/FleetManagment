@@ -38,5 +38,13 @@ public class CarManagerImpl implements CarManager
 		
 	}
 
+	@Override
+	public Optional<Car> getCar(long carid) {
+		// TODO Auto-generated method stub
+		return car_repository.findById(carid);
+	}
+
+
+
 
 }
