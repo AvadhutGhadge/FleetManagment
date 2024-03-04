@@ -1,0 +1,52 @@
+package com.example.demo.entities;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+import lombok.experimental.SuperBuilder;
+
+@Builder
+@NoArgsConstructor
+@Getter
+@Setter
+@AllArgsConstructor
+@ToString
+public class JwtResponse {
+    private String jwtToken;
+    private String username;
+    private long userId;
+
+    // getters and setters...
+
+    public static class Builder {
+        private String jwtToken;
+        private String username;
+        private long userId;
+
+        public Builder jwtToken(String jwtToken) {
+            this.jwtToken = jwtToken;
+            return this;
+        }
+
+        public Builder username(String username) {
+            this.username = username;
+            return this;
+        }
+
+        public Builder userId(long userId) {
+            this.userId = userId;
+            return this;
+        }
+
+        public JwtResponse build() {
+            JwtResponse jwtResponse = new JwtResponse();
+            jwtResponse.jwtToken = this.jwtToken;
+            jwtResponse.username = this.username;
+            jwtResponse.userId = this.userId;
+            return jwtResponse;
+        }
+    }
+}

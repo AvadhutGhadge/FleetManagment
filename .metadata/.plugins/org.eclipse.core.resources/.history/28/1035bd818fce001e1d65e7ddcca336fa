@@ -1,0 +1,116 @@
+//package com.example.demo.config;
+//
+//import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.context.annotation.Bean;
+//import org.springframework.context.annotation.Configuration;
+//import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+//import org.springframework.security.config.annotation.web.configurers.SessionManagementConfigurer;
+//import org.springframework.security.config.http.SessionCreationPolicy;
+//import org.springframework.security.web.SecurityFilterChain;
+//import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+//
+//import com.example.demo.security.JwtAuthenticationFilter;
+//import com.example.demo.security.JwtAuthonticationEntryPoint;
+////
+////@Configuration
+////public class SecurityConfig {
+////
+////
+////    @Autowired
+////    private JwtAuthonticationEntryPoint point;
+////    @Autowired
+////    private JwtAuthenticationFilter filter;
+////
+////    @Bean
+////    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+////
+////    	http.csrf(csrf->csrf.disable()).cors(cors->cors.disable())
+////    	.authorizeHttpRequests(auth->auth.requestMatchers("/home/**").authenticated()
+////    			.requestMatchers("/auth/login").permitAll().anyRequest().authenticated())
+////    	.exceptionHandling(ex->ex.authenticationEntryPoint(point))
+////    	.sessionManagement(session->session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
+////    	
+////    	http.addFilterBefore(filter, UsernamePasswordAuthenticationFilter.class);
+////    	
+////    	
+////        return http.build();
+////    }
+////
+////
+////}
+//
+//@Configuration
+//@EnableWebSecurity
+//public class SecurityConfig extends WebSecurityConfigurerAdapter {
+//
+//    @Autowired
+//    private JwtAuthonticationEntryPoint authenticationEntryPoint;
+//
+//    @Autowired
+//    private JwtAuthenticationFilter authenticationFilter;
+//
+//    @Override
+//    protected void configure(HttpSecurity http) throws Exception {
+//        http.csrf().disable()
+//            .authorizeRequests()
+//                .antMatchers("/auth/login").permitAll()
+//                .antMatchers("/home/**").authenticated()
+//                .anyRequest().authenticated()
+//            .and()
+//            .exceptionHandling().authenticationEntryPoint(authenticationEntryPoint)
+//            .and()
+//            .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+//
+//        http.addFilterBefore(authenticationFilter, UsernamePasswordAuthenticationFilter.class);
+//    }
+//}
+
+import com.example.demo.security.JwtAuthenticationFilter;
+import com.example.demo.security.JwtAuthonticationEntryPoint;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+
+@Configuration
+@EnableWebSecurity
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
+    @Autowired
+    private JwtAuthonticationEntryPoint authenticationEntryPoint;
+
+    @Autowired
+    private JwtAuthenticationFilter authenticationFilter;
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.csrf().disable()
+                .authorizeRequests()
+                // Permit access to /auth/login without authentication
+                .antMatchers("/auth/login").permitAll()
+                // Allow access to static resources
+                .antMatchers(HttpMethod.GET, "/home/**").permitAll()
+                // Require authentication for other endpoints
+                .anyRequest().authenticated()
+                .and()
+                // Set custom JWT authentication filter
+                .addFilterBefore(authenticationFilter, UsernamePasswordAuthenticationFilter.class)
+                // Set custom JWT authentication entry point
+                .exceptionHandling().authenticationEntryPoint(authenticationEntryPoint)
+                .and()
+                // Set session management to stateless
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+    }
+
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+}
