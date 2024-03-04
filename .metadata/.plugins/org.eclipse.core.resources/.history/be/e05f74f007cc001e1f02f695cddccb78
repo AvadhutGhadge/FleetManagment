@@ -1,0 +1,26 @@
+package com.example.demo.controllers;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.demo.entities.AddOn;
+import com.example.demo.entities.BookingDetail;
+import com.example.demo.services.AddOnManager;
+import com.example.demo.services.BookingDetailManager;
+
+@RestController
+@CrossOrigin
+public class BookingDetailController {
+	@Autowired
+	private BookingDetailManager booking;
+	@GetMapping("/addon")
+	public List<BookingDetail> getAllAddOns() {
+		
+		return booking.getBookingDetail();
+		
+	}
+}

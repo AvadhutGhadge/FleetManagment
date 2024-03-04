@@ -1,0 +1,24 @@
+package com.fleeman.fleeman.services;
+
+import com.fleeman.fleeman.entities.Booking;
+import com.fleeman.fleeman.repositories.BookingRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class BookingServiceImpl implements BookingService {
+
+
+    @Autowired
+    private BookingRepository bookingrepository;
+
+    @Override
+    public void save(Booking booking) {
+        bookingrepository.save(booking);
+    }
+
+    @Override
+    public Booking getBookingByEmailId(String emailId) {
+        return bookingrepository.getBookingByEmailId(emailId);
+    }
+}

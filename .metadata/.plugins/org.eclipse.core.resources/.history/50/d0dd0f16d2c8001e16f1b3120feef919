@@ -1,0 +1,31 @@
+package com.fleeman.fleeman.controllers;
+
+import com.fleeman.fleeman.entities.Booking;
+import com.fleeman.fleeman.services.BookingService;
+
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@CrossOrigin
+public class BookingController {
+
+    @Autowired
+    private BookingService bookingService;
+
+    //add record in booking table
+    @CrossOrigin
+    @PostMapping("/api/addbooking")
+    public void save(@RequestBody  Booking booking) {
+        bookingService.save(booking);
+    }
+
+
+    @CrossOrigin
+    @GetMapping("/api/booking/by-email/{emailId}")
+    public Booking getBookingByEmailId(@PathVariable String emailId)
+    {
+        return bookingService.getBookingByEmailId(emailId);
+    }
+}
